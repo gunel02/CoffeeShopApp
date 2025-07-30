@@ -6,11 +6,13 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.coffeeshop.databinding.ActivityMainBinding
 import com.example.coffeeshop.ui.adapter.ArticleAdapter
 import com.example.coffeeshop.ui.adapter.CategoryAdapter
+import com.example.coffeeshop.ui.adapter.PopularAdapter
 import com.example.coffeeshop.ui.viewmodel.MainViewModel
 import com.example.coffeeshop.ui.viewmodel.NewsViewModel
 
@@ -32,12 +34,16 @@ class MainActivity : AppCompatActivity() {
         initNews()
         initCategory()
 
+        initPopular()
+
 
         viewModel.fetchBanners()
         viewModel.fetchCategories()
         newsViewModel.fetchNews()
+        viewModel.fetchPopular()
 
     }
+
     private fun initBanner() {
         binding.progressBarBanner.visibility = View.VISIBLE
         viewModel.banners.observe(this) { bannerList ->
@@ -91,5 +97,23 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+    private fun initPopular() {
+        binding.progressBarPopular.visibility = View.VISIBLE
+
+        viewModel.populars.observe(this) { popularList ->
+            Log.d("POPULAR_TAG", "Popular list: $popularList")
+
+            if (!popularList.isNullOrEmpty()) {
+                val adapter = PopularAdapter(popularList)
+                binding.recyclerViewPopular.adapter = adapter
+                binding.recyclerViewPopular.layoutManager = GridLayoutManager(this, 2)
+            } else {
+                Log.e("POPULAR_TAG", "Popular list is empty or null")
+            }
+
+            binding.progressBarPopular.visibility = View.GONE
+        }
+    }
 
 }

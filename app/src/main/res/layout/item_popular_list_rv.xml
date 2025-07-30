@@ -10,22 +10,10 @@
         android:id="@+id/view"
         android:layout_width="wrap_content"
         android:layout_height="180dp"
-        android:background="@drawable/background_gradient_brown"
+        android:background="@drawable/background_semi_corner_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-<!--   this imageview is rounded but image background must be removed -->
-<!--    <ImageView-->
-<!--        android:id="@+id/pic"-->
-<!--        android:layout_width="140dp"-->
-<!--        android:scaleType="centerCrop"-->
-<!--        android:layout_height="140dp"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/view"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/view"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/view"-->
-<!--        tools:srcCompat="@tools:sample/backgrounds/scenic" />-->
 
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -48,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="title"
-        android:textColor="@color/white"
+        android:textColor="@color/dark_brown"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/pic"
@@ -63,7 +51,7 @@
         android:layout_marginBottom="8dp"
         android:text="$-"
         android:textSize="16sp"
-        android:textColor="@color/white"
+        android:textColor="@color/orange"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -84,10 +72,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:text="subtitle"
         android:textSize="12sp"
         android:textAlignment="center"
-        android:text="subtitle"
-        android:textColor="@color/white"
+        android:textColor="@color/dark_brown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
