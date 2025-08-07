@@ -1,8 +1,8 @@
 package com.example.coffeeshop.ui.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.os.Looper
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -12,6 +12,7 @@ import com.example.coffeeshop.databinding.ItemCategoryRvBinding
 import com.example.coffeeshop.domain.models.CategoryModel
 import com.example.coffeeshop.ui.activity.ItemsListActivity
 
+@Suppress("DEPRECATION")
 class CategoryAdapter(private val categoryModel: List<CategoryModel>) :
     RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
@@ -26,7 +27,7 @@ class CategoryAdapter(private val categoryModel: List<CategoryModel>) :
         return CategoryViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CategoryViewHolder, @SuppressLint("RecyclerView") position: Int) {
 
         val category = categoryModel[position]
         holder.binding.titleCat.text = category.title
@@ -57,10 +58,10 @@ class CategoryAdapter(private val categoryModel: List<CategoryModel>) :
 
         if(selectedPosition == position){
             holder.binding.root.setBackgroundResource(R.drawable.background_category_dark_brown)
-            holder.binding.titleCat.setTextColor(context.getColor(com.example.coffeeshop.R.color.white))
+            holder.binding.titleCat.setTextColor(context.getColor(R.color.white))
         }else{
             holder.binding.root.setBackgroundResource(R.drawable.background_category_white)
-            holder.binding.titleCat.setTextColor(context.getColor(com.example.coffeeshop.R.color.dark_brown))
+            holder.binding.titleCat.setTextColor(context.getColor(R.color.dark_brown))
 
         }
     }

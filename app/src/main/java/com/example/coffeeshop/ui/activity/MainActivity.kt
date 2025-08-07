@@ -1,5 +1,6 @@
 package com.example.coffeeshop.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -33,8 +34,8 @@ class MainActivity : AppCompatActivity() {
         initBanner()
         initNews()
         initCategory()
-
         initPopular()
+        initBottomMenu()
 
 
         viewModel.fetchBanners()
@@ -42,6 +43,12 @@ class MainActivity : AppCompatActivity() {
         newsViewModel.fetchNews()
         viewModel.fetchPopular()
 
+    }
+
+    private fun initBottomMenu() {
+        binding.cartBtn.setOnClickListener{
+            startActivity(Intent(this, CartActivity::class.java))
+        }
     }
 
     private fun initBanner() {

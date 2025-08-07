@@ -7,7 +7,7 @@ data class PopularModel(
     val picUrl: List<String> = emptyList(),
     val price: Double = 0.0,
     val rating: Double = 0.0,
-    val numberInCart: Int = 0,
-    val categoryId:String = "",
+    var numberInCart: Int = 0,
+    val categoryId: String = "",
     var extra: String = ""
-)
+) : java.io.Serializable
